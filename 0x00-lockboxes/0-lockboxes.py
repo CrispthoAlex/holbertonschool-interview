@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 # Method that determines if all the boxes can be opened
 
+
 def uniquekeys(boxes, allkeys):
     res = []
     for e in allkeys:
         res += boxes[e]
     return res
+
 
 def canUnlockAll(boxes):
     pos = 0
