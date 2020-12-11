@@ -4,7 +4,7 @@
 
 def uniquekeys(boxes, allkeys):
     res = []
-    for k, e in enumerate(allkeys):
+    for e in allkeys:
         if e < len(boxes):
             res += boxes[e]
     return res
@@ -22,5 +22,9 @@ def canUnlockAll(boxes):
                 allkeys.append(j)
                 pos += 1
                 adding = True
-
+    # A key with the same number as a box opens that box
+    for index, box in enumerate(boxes):
+        if index not in allkeys:
+            return False
+    # There can be more keys
     return len(allkeys) >= len(boxes)
