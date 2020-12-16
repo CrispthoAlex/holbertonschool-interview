@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 /**
  * insert_nodeint_at_index - function that inserts a new node at
@@ -13,15 +14,10 @@ listint_t *insert_node(listint_t **head, int number)
 	int idx = 0;/*iterator for index*/
 
 	help = *head;
-	while (help)
+	while (help && help->next->n < number) // Check the next value
 	{
-        if (help->n < number)
-        {
             idx++;
-		    help = help->next;/*move the next of *head */
-        }
-        else
-            break;
+		    help = help->next; /*move the next of *head */
 	}
 	if (!help)
 		return (NULL);
@@ -35,7 +31,7 @@ listint_t *insert_node(listint_t **head, int number)
 		idxnode->next = *head;/*Make next of new node as next of *head*/
 		*head = idxnode;/*move the next of *head as idxnode*/
 	}
-	else
+    else
 	{
 		idxnode->next = help->next;
 		help->next = idxnode;
