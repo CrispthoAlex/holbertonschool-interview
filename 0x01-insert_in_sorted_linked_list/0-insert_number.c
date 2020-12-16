@@ -2,8 +2,7 @@
 #include <stdio.h>
 #include "lists.h"
 /**
- * insert_nodeint_at_index - function that inserts a new node at
- * a given position
+ * insert_node - function that inserts a new node at sorted linked list
  * @head: first node in the list
  * @number: integer to save in the linked list
  * Return: the address of the new element
@@ -14,10 +13,10 @@ listint_t *insert_node(listint_t **head, int number)
 	int idx = 0;/*iterator for index*/
 
 	help = *head;
-	while (help && help->next->n < number) // Check the next value
+	while (help && help->next->n < number) /* Check the next value */
 	{
-            idx++;
-		    help = help->next; /*move the next of *head */
+		idx++;
+		help = help->next; /* move to the next node */
 	}
 	if (!help)
 		return (NULL);
@@ -31,7 +30,7 @@ listint_t *insert_node(listint_t **head, int number)
 		idxnode->next = *head;/*Make next of new node as next of *head*/
 		*head = idxnode;/*move the next of *head as idxnode*/
 	}
-    else
+	else
 	{
 		idxnode->next = help->next;
 		help->next = idxnode;
