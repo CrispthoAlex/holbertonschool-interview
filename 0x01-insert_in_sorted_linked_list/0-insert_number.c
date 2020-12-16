@@ -9,31 +9,47 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *idxnode = NULL, *help = NULL;
-	int idx = 0;/*iterator for index*/
+	listint_t *newnode = NULL, *current = NULL;
+	int idx = 0;/*iterator for node position*/
 
-	help = *head;
-	while (help && help->next->n < number) /* Check the next value */
+	if (!head && !(*head)) /* Create a new list */
+		return (add_nodeint_end(head, number));
+	
+	newnode = malloc(sizeof(listint_t)); /*reserved memory for newnode*/
+	if (!newnode)
+		return (NULL);
+	newnode->n = number; /*input the data */
+    
+    current = *head;
+	while (current) /* Check the next value */
 	{
-		idx++;
-		help = help->next; /* move to the next node */
+		/*printf("\nBefore => This is current = %i next = %i", current->n, current->next->n);*/
+        if (current->next && current->next->n < number)
+		{	
+			current = current->next; /* move to the next node */
+			idx++;
+		}
+		else
+			break;
+        /*printf("\nNext check => This is current = %i next = %i and idx = %i", current->n, current->next->n, idx);*/
 	}
-	if (!help)
-		return (NULL);
 
-	idxnode = malloc(sizeof(listint_t)); /*reserved memory for idxnode*/
-	if (!idxnode)
-		return (NULL);
-	idxnode->n = number; /*put in the data */
 	if (idx == 0)
 	{
-		idxnode->next = *head;/*Make next of new node as next of *head*/
-		*head = idxnode;/*move the next of *head as idxnode*/
+		newnode->next = *head;/* Make new node the *head */
+		*head = newnode;/* move *head the newnode*/
 	}
 	else
 	{
-		idxnode->next = help->next;
-		help->next = idxnode;
+        /*printf("\nThis is current->next = %i and this newnode = %i\n", 
+		current->next->n, newnode->n);*/
+		if (current->next)
+		{
+            newnode->next = current->next; /* */
+			current->next = newnode;
+        }
+		else
+            return add_nodeint_end(&current, number); /* newnode is the last node*/
 	}
-	return (idxnode);
+	return (newnode);
 }
