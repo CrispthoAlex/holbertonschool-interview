@@ -14,24 +14,19 @@ listint_t *insert_node(listint_t **head, int number)
 
 	if (!head && !(*head)) /* Create a new list */
 		return (add_nodeint_end(head, number));
-	
 	newnode = malloc(sizeof(listint_t)); /*reserved memory for newnode*/
 	if (!newnode)
 		return (NULL);
 	newnode->n = number; /*input the data */
-    
-    current = *head;
+
+	current = *head;
 	while (current) /* Check the next value */
 	{
-		/*printf("\nBefore => This is current = %i next = %i", current->n, current->next->n);*/
-        if (current->next && current->next->n < number)
-		{	
+		if (current->next && current->next->n < number)
 			current = current->next; /* move to the next node */
-			idx++;
-		}
 		else
 			break;
-        /*printf("\nNext check => This is current = %i next = %i and idx = %i", current->n, current->next->n, idx);*/
+		idx++;
 	}
 
 	if (idx == 0)
@@ -41,15 +36,13 @@ listint_t *insert_node(listint_t **head, int number)
 	}
 	else
 	{
-        /*printf("\nThis is current->next = %i and this newnode = %i\n", 
-		current->next->n, newnode->n);*/
 		if (current->next)
 		{
-            newnode->next = current->next; /* */
+			newnode->next = current->next; /* */
 			current->next = newnode;
-        }
-		else
-            return add_nodeint_end(&current, number); /* newnode is the last node*/
+		}
+		else /* newnode is the last node*/
+			return (add_nodeint_end(&current, number));
 	}
 	return (newnode);
 }
