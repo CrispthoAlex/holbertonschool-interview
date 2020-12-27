@@ -97,8 +97,6 @@ heap_t *heap_insert(heap_t **root, int value)
 {
 	heap_t *newnode = NULL;
 
-	if (!root)
-		return (NULL);
 	if (!*root)
 	{
 		*root = binary_tree_node(NULL, value);
