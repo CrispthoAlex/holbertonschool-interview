@@ -97,9 +97,13 @@ heap_t *heap_insert(heap_t **root, int value)
 {
 	heap_t *newnode = NULL;
 
-	if ((*root) == NULL)
-		return (binary_tree_node(NULL, value));
-
+	if (!root)
+		return (NULL);
+	if (!*root)
+	{
+		*root = binary_tree_node(NULL, value);
+		return (*root);
+	}
 	if (binary_tree_is_perfect(*root) || (!binary_tree_is_perfect((*root)->left)))
 	{
 		if ((*root)->left != NULL)
