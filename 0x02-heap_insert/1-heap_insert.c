@@ -104,7 +104,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	}
 	if (binary_tree_is_perfect(*root) || (!binary_tree_is_perfect((*root)->left)))
 	{
-		if ((*root)->left != NULL)
+		if ((*root)->left)
 		{
 			newnode = heap_insert(&((*root))->left, value);
 			heap_swap_parent_child(&((*root)->left), root);
@@ -120,7 +120,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	}
 	else
 	{
-		if (!((*root)->right))
+		if ((*root)->right)
 		{
 			newnode = heap_insert(&((*root))->right, value);
 			heap_swap_parent_child(&((*root)->right), root);
