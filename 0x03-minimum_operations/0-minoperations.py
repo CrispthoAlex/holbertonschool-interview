@@ -1,33 +1,36 @@
 #!/usr/bin/python3
-from collections import Counter
-# Given a number n, write a method that calculates
-# the fewest number of operations needed to result
-# in exactly n H characters in the file. 
+"""
+Given a number n, write a method that calculates
+the fewest number of operations needed to result
+in exactly n H characters in the file.
+"""
 
 
 def minOperations(n):
-    # Method to calculate
-    # the fewest number of operations needed to result
-    # in exactly n H characters in a file
-    file  = open("textfile.txt", "w");
-    minOper = 0;
-    for line in file:
-        if n % Counter(line) == 0:
-            file.write(line);
-            minOper += 1;
-        else:
-            file.close();
-            file  = open("textfile.txt", "a");
-            file.write(line);
-            minOper += 1;
-        if Counter(line) == n:
-            break;
-        if Counter(line) >= n:
-            file.close();        
-            return 0;
-    file.close();
+    """ Method to calculate
+    the fewest number of operations needed to result
+    in exactly n H characters in a file
+    @minOper: Minimun operations needed
+    @numChar: Number of characters in the line
+    @copyChar: Characters copied to append
+    Return: minOper, if it is not possible 0
+    """
+    minOper = 0
+    numChar = copyChar = 1
 
+    if n <= 1:
+        return minOper
+
+    for num in range(n):
+        if n % numChar == 0:  # Copy All and Paste
+            copyChar = numChar  # Copy All
+            numChar += copyChar  # Paste
+            minOper += 2
+        else:  # Only Paste
+            numChar += copyChar
+            minOper += 1
+        if numChar == n:
+            break
+        if minOper > n:
+            return 0
     return minOper
-
-if __name__ == "__main__":
-    minOperations(n)
