@@ -23,7 +23,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	/* toppling and printing */
 	while (isStable(grid1) == false)
 	{
-		toppling(grid1, grid2);
+		toppling(grid1);
 		if (isStable(grid1) == false)
 			other_print_grid(grid1);
 	}
@@ -70,32 +70,37 @@ void other_print_grid(int grid[3][3])
 /**
  * toppling - Topple the unstable piles of grid1. Affect all grid.
  * @grid1: Grid 3x3 to be toppled
- * @grid2: Grid 3x3 to keep grid1
  */
-void toppling(int grid1[3][3], int grid2[3][3])
+void toppling(int grid1[3][3])
 {
+	int gridZero[3][3];
 	int col, row;
 
-	grid2 = grid1; /* Save grid1 */
+	for (col = 0; col < 3 ; col++)
+		for (row = 0; row < 3; row++)
+			gridZero[col][row] = 0; /* Save grid1 */
 
 	for (col = 0; col < 3 ; col++)
 	{
 		for (row = 0; row < 3; row++)
 		{
-			if (grid2[col][row] > 3)
+			if (grid1[col][row] > 3)
 			{
 				/* 4 grains less */
-				grid1[col][row] -= 4;
+				gridZero[col][row] -= 4;
 
 				if (row > 0)/* Up */
-					grid1[col][row - 1] += 1;
+					gridZero[col][row - 1] += 1;
 				if (col <= 1)/* Right */
-					grid1[col + 1][row] += 1;
+					gridZero[col + 1][row] += 1;
 				if (row <= 1)/* Down */
 					grid1[col][row + 1] += 1;
 				if (col > 0)/* Left */
-					grid1[col - 1][row] += 1;
+					gridZero[col - 1][row] += 1;
 			}
 		}
 	}
+	for (col = 0; col < 3 ; col++)
+		for (row = 0; row < 3; row++)
+			grid1[col][row] += gridZero[col][row];
 }
