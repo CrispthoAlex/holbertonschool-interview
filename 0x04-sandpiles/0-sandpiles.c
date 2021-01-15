@@ -1,5 +1,3 @@
-#include <sandpiles.h>
-#include <stdio.h>
 /**
  * sandpiles_sum - computes the sum of two sandpiles
  *
