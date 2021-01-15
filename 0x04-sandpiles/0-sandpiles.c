@@ -12,10 +12,8 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	int col, row; /* Dimension of grids*/
 
 	for (col = 0; col < 3 ; col++)
-	{
 		for (row = 0; row < 3; row++)
 			grid1[col][row] += grid2[col][row];
-	}
 	/* boolean function to check grid1 stability */
 	if (isStable(grid1) == false)
 		other_print_grid(grid1);
@@ -78,7 +76,7 @@ void toppling(int grid1[3][3])
 
 	for (col = 0; col < 3 ; col++)
 		for (row = 0; row < 3; row++)
-			gridZero[col][row] = 0; /* Save grid1 */
+			gridZero[col][row] = 0;
 
 	for (col = 0; col < 3 ; col++)
 	{
@@ -86,17 +84,17 @@ void toppling(int grid1[3][3])
 		{
 			if (grid1[col][row] > 3)
 			{
-				/* 4 grains less */
-				gridZero[col][row] -= 4;
-
 				if (row > 0)/* Up */
 					gridZero[col][row - 1] += 1;
 				if (col <= 1)/* Right */
 					gridZero[col + 1][row] += 1;
 				if (row <= 1)/* Down */
-					grid1[col][row + 1] += 1;
+					gridZero[col][row + 1] += 1;
 				if (col > 0)/* Left */
 					gridZero[col - 1][row] += 1;
+
+				/* 4 grains less */
+				grid1[col][row] -= 4;
 			}
 		}
 	}
