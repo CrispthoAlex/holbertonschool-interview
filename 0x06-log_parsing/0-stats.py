@@ -16,7 +16,7 @@ def generate_stats(countLine, filesize, codeKey):
             countLine += 1
 
             # Empty line or new line ("\n")
-            if len(line) < 2:
+            if len(line) < 7:
                     continue
             filesize += int(line[8])
 
