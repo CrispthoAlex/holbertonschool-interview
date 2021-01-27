@@ -15,13 +15,18 @@ def generate_stats(countLine, filesize, codeKey):
             line = line.split()
             countLine += 1
             filesize += int(line[8])
-
+            
+            # Empty line
+            if len(line) < 2:
+                    continue
+            
             for key, val in codeKey.items():
                 if str(key) == line[7]:  # Check Status code in stdin
                     val = val + 1
                     codeKey.update({key: val})
             if countLine % 10 == 0:
                 print_stats(filesize, codeKey)
+        print_stats(filesize, codeKey)
     except KeyboardInterrupt as e:
         print_stats(filesize, codeKey)
 
