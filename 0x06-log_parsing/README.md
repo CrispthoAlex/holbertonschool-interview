@@ -32,4 +32,4 @@
 <a href="url"><img src="https://www.holbertonschool.com/holberton-logo.png" align="middle" width="100" height="30"></a>
 
 ##### Holberton School  Advanced Program  AR/VR
-##### December, 2021. Cali, Colombia
+##### January, 2021. Cali, Colombia
