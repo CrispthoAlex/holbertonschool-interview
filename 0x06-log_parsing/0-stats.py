@@ -37,7 +37,7 @@ def print_stats(filesize, codeKey):
     """ Method to Print Stats about Status code """
     print("File size: {}".format(filesize))
     for key, val in sorted(codeKey.items()):
-        if val > 0:
+        if val != 0:
             print("{}: {}".format(key, val))
 
 if __name__ == "__main__":
