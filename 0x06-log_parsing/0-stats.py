@@ -26,7 +26,6 @@ def generate_stats(countLine, filesize, codeKey):
         print_stats(filesize, codeKey)
 
 
-
 def print_stats(filesize, codeKey):
     """ Method to Print Stats about Status code """
     print("File size: {}".format(filesize))
