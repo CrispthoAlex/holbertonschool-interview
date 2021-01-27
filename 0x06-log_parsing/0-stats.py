@@ -28,10 +28,10 @@ def generate_stats(countLine, filesize, codeKey):
 
 def print_stats(filesize, codeKey):
     """ Method to Print Stats about Status code """
-    print("File size: {}".format(filesize))
+    print("File size: {:d}".format(filesize))
     for key, val in codeKey.items():
         if val > 0:
-            print(key, ": ", val)
+            print("{:d}: {:d}".format(key, val))
 
 if __name__ == "__main__":
     filesize = 0
