@@ -8,6 +8,13 @@
 import sys
 
 
+def print_stats(filesize, codeKey):
+    """ Method to Print Stats about Status code """
+    print("File size: {:d}".format(filesize))
+    for key in sorted(codeKey.keys()):
+        if codeKey[key] != 0:
+            print("{}: {:d}".format(key, codeKey[key]))
+
 if __name__ == "__main__":
     filesize = 0
     countLine = 0
@@ -17,13 +24,6 @@ if __name__ == "__main__":
         '401': 0, '403': 0, '404': 0,
         '405': 0, '500': 0
     }
-
-    def print_stats(filesize, codeKey):
-        """ Method to Print Stats about Status code """
-        print("File size: {:d}".format(filesize))
-        for key in sorted(codeKey.keys()):
-            if codeKey[key] != 0:
-                print("{}: {:d}".format(key, codeKey[key]))
 
     try:
         for line in sys.stdin:
