@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
                 countLine += 1
                 filesize += int(line[-1])
-                
+
                 if not countLine % 10:
                     print_stats(filesize, codeKey)
         # Print the stats generated without the correct line
