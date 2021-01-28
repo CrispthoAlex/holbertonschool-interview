@@ -18,10 +18,10 @@ if __name__ == "__main__":
 
     def print_stats(filesize, codeKey):
         """ Method to Print Stats about Status code """
-        print("File size: {}".format(filesize))
-        for key, val in sorted(codeKey.items()):
-            if val != 0:
-                print("{}: {}".format(key, val))
+        print("File size: {:d}".format(filesize))
+        for key in sorted(codeKey.keys()):
+            if codeKey[key] != 0:
+                print("{}: {:d}".format(key, codeKey[key]))
 
     try:
         for line in sys.stdin:
