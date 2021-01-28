@@ -13,7 +13,9 @@ if __name__ == "__main__":
     countLine = 0
     # Dictionary to save status code counters
     codeKey = {
-        '200': 0, '301': 0, '400': 0, '401': 0, '403': 0, '404': 0, '405': 0, '500': 0
+        '200': 0, '301': 0, '400': 0,
+        '401': 0, '403': 0, '404': 0,
+        '405': 0, '500': 0
     }
 
     def print_stats(filesize, codeKey):
