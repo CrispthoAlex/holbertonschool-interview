@@ -8,31 +8,6 @@
 import sys
 
 
-def generate_stats(countLine, filesize, codeKey):
-    """ Method to generate Stats about Status code """
-    try:
-        for line in sys.stdin:
-            line = line.split()
-            countLine += 1
-
-            # Empty line or new line ("\n")
-            if len(line) < 7:
-                    continue
-            filesize += int(line[8])
-
-            for key, val in codeKey.items():
-                if str(key) == line[7]:  # Check Status code in stdin
-                    val = val + 1
-                    codeKey.update({key: val})  # Updating value
-            if countLine % 10 == 0:
-                print_stats(filesize, codeKey)
-        # Print the stats generated without the correct line
-        print_stats(filesize, codeKey)
-    except KeyboardInterrupt:
-        print_stats(filesize, codeKey)
-        raise
-
-
 def print_stats(filesize, codeKey):
     """ Method to Print Stats about Status code """
     print("File size: {}".format(filesize))
@@ -47,4 +22,23 @@ if __name__ == "__main__":
     codeKey = {
         200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0
     }
-    generate_stats(countLine, filesize, codeKey)
+    try:
+        for line in sys.stdin:
+            line = line.split()
+
+            # Empty line or new line ("\n")
+            if len(line) < 2:
+                    continue
+            countLine += 1
+            filesize += int(line[8])
+
+            if int(line[7]) in codeKey.keys():  # Check Status code in stdin
+                codeKey[int(line[7])] += 1  # Updating value
+
+            if countLine % 10 == 0:
+                print_stats(filesize, codeKey)
+        # Print the stats generated without the correct line
+        print_stats(filesize, codeKey)
+    except KeyboardInterrupt:
+        print_stats(filesize, codeKey)
+        raise
