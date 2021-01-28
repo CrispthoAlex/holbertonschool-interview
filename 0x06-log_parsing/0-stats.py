@@ -27,16 +27,15 @@ if __name__ == "__main__":
             line = line.split()
 
             # Empty line or new line ("\n")
-            if len(line) < 2:
-                    continue
-            countLine += 1
-            filesize += int(line[8])
+            if len(line) >= 2:
+                countLine += 1
+                filesize += int(line[8])
 
-            if int(line[7]) in codeKey.keys():  # Check Status code in stdin
-                codeKey[int(line[7])] += 1  # Updating value
+                if int(line[7]) in codeKey.keys():  # Check Status code
+                    codeKey[int(line[7])] += 1  # Updating value
 
-            if countLine % 10 == 0:
-                print_stats(filesize, codeKey)
+                if countLine % 10 == 0:
+                    print_stats(filesize, codeKey)
         # Print the stats generated without the correct line
         print_stats(filesize, codeKey)
     except KeyboardInterrupt:
