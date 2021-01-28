@@ -8,13 +8,6 @@
 import sys
 
 
-def print_stats(filesize, codeKey):
-    """ Method to Print Stats about Status code """
-    print("File size: {}".format(filesize))
-    for key, val in sorted(codeKey.items()):
-        if val != 0:
-            print("{}: {}".format(key, val))
-
 if __name__ == "__main__":
     filesize = 0
     countLine = 0
@@ -22,6 +15,14 @@ if __name__ == "__main__":
     codeKey = {
         200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0
     }
+
+    def print_stats(filesize, codeKey):
+        """ Method to Print Stats about Status code """
+        print("File size: {}".format(filesize))
+        for key, val in sorted(codeKey.items()):
+            if val != 0:
+                print("{}: {}".format(key, val))
+
     try:
         for line in sys.stdin:
             line = line.split()
