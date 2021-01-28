@@ -32,8 +32,8 @@ if __name__ == "__main__":
                 if int(line[-2]) in codeKey.keys():  # Check Status code
                     codeKey[int(line[-2])] += 1  # Updating value
 
-                countLine += 1
                 filesize += int(line[-1])
+                countLine += 1
 
                 if not countLine % 10:
                     print_stats(filesize, codeKey)
