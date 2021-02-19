@@ -1,4 +1,4 @@
-![]()
+![](https://helloacm.com/wp-content/uploads/2019/05/bart-simpson-utf8.png)
 
 # 0x09. UTF-8 Validation
 
