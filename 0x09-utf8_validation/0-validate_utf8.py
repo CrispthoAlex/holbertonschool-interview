@@ -6,7 +6,7 @@
 
 
 def validUTF8(data):
-    """ 
+    """
         Checks if a data set represents a valid UTF-8 encoding.
         @data: data set to valid UTF-8 encoding
     """
@@ -15,7 +15,7 @@ def validUTF8(data):
 
     # byte type
     byte = bytes(clearByte)
-    
+
     try:
         byte.decode()
     except UnicodeDecodeError:
