@@ -9,6 +9,7 @@
  * @line: points to an array of integers
  * @size: Number of elements in @array
  * @direction: can be either SLIDE_LEFT or SLIDE_RIGHT
+ * Return: 1 upon success, or 0 upon failure
  */
 int slide_line(int *line, size_t size, int direction)
 {
