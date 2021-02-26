@@ -19,7 +19,7 @@ int slide_line(int *line, size_t size, int direction)
 }
 
 /**
- * move_right - Slides and merges an array of integers to the right
+ * moveRight - Slides and merges an array of integers to the right
  * @line: Pointer to an array of integers
  * @size: Number of elements in array
  * Return: 1 is success
@@ -39,7 +39,39 @@ int moveRight(int *line, size_t size)
 				i += 1;
 				break;
 			}
+			if (line[j] > 0 && line[i] == line[j])
+			{
+				line[i] += line[j];
+				line[j] = 0;
+				break;
+			}
+		}
+	}
+	return (1);
+}
+
+/**
+ * moveLeft - Slides and merges an array of integers to the left
+ * @line: Pointer to an array of integers
+ * @size: Number of elements in array
+ * Return: 1 is success
+ */
+int moveLeft(int *line, size_t size)
+{
+	int i, j;
+
+	for (i = 0; i < (int) size; i++)
+	{
+		for (j = i + 1; j < (int) size; j++)
+		{
 			if (line[i] == 0 && line[j] > 0)
+			{
+				line[i] += line[j];
+				line[j] = 0;
+				i -= 1;
+				break;
+			}
+			if (line[j] > 0 && line[i] == line[j])
 			{
 				line[i] += line[j];
 				line[j] = 0;
