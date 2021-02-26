@@ -14,9 +14,15 @@
 int slide_line(int *line, size_t size, int direction)
 {
 	if (direction == SLIDE_LEFT)
-	{ moveLeft(line, size); }
+	{
+		moveLeft(line, size);
+		return (1);
+	}
 	if (direction == SLIDE_RIGHT)
-	{ moveRight(line, size); }
+	{
+		moveRight(line, size);
+		return (1);
+	}
 	return (0); /* Fail */
 }
 
@@ -26,7 +32,7 @@ int slide_line(int *line, size_t size, int direction)
  * @size: Number of elements in array
  * Return: 1 is success
  */
-int moveRight(int *line, size_t size)
+void moveRight(int *line, size_t size)
 {
 	int i, j;
 
@@ -49,7 +55,6 @@ int moveRight(int *line, size_t size)
 			}
 		}
 	}
-	return (1);
 }
 
 /**
@@ -58,7 +63,7 @@ int moveRight(int *line, size_t size)
  * @size: Number of elements in array
  * Return: 1 is success
  */
-int moveLeft(int *line, size_t size)
+void moveLeft(int *line, size_t size)
 {
 	int i, j;
 
@@ -81,5 +86,4 @@ int moveLeft(int *line, size_t size)
 			}
 		}
 	}
-	return (1);
 }
