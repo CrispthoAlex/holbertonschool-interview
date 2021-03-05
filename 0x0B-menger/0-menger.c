@@ -28,17 +28,16 @@ void menger(int level)
 {
 	int col, row, size;
 
-	if (level >= 0)
+	if (level < 0)
+		return;
+
+	size = pow(3, level);
+
+	for (col = 0; col < size; col++)
 	{
-		size = pow(3, level);
+		for (row = 0; row < size; row++)
+			printf("%c", search_hole(col, row));
 
-		for (col = 0; col < size; col++)
-		{
-			for (row = 0; row < size; row++)
-				printf("%c", search_hole(col, row));
-
-			printf("\n");
-		}
+		printf("\n");
 	}
-	return;
 }
