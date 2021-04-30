@@ -35,4 +35,4 @@ def nQueens(n, i=0, a=[], b=[], c=[]):
 
 for solution in nQueens(n):
     answer = [[col, row] for col, row in enumerate(solution)]
-print(answer)
+    print(answer)
