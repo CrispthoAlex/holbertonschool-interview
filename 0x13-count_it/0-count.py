@@ -34,10 +34,11 @@ def count_words(subreddit, word_list, after='', my_dict={}):
 
         after = rq.json().get('data').get('after')
         if (after is None):
-            for key, val in sorted(my_dict.items(),
-                                   key=lambda x: (-x[1], x[0])):
-                if (val != 0):
-                    print("{}: {}".format(key.lower(), val))
+            sortValue = sorted(my_dict.items(), key=lambda x: x[::-1])
+            sortAlpha = sorted(sortValue, key=lambda x: x[1], reverse=True)
+            for word, value in sortAlpha:
+                if (value != 0):
+                    print("{}: {}".format(word.lower(), value))
             return
         return count_words(subreddit, word_list, after, my_dict)
     else:
