@@ -1,14 +1,14 @@
 #include "sort.h"
 
 /**
- * merge - merge sort
+ * topDownMerge - merge sort
  * @array: Array to be sorted
  * @size: Size of array
  * @mid: Middle index
  * @temp: Temporal array
  * Return: Nothing.
  */
-void merge(int *array, int size, int mid, int *temp)
+void topDownMerge(int *array, int size, int mid, int *temp)
 {
 	int i, j, k;
 
@@ -49,13 +49,13 @@ void merge(int *array, int size, int mid, int *temp)
 }
 
 /**
- * merge_main - merge sort
+ * topDownMerge_main - merge sort
  * @array: Array to be sorted
  * @size: Size of array
  * @temp: Temporal array
  * Return: Nothing.
  */
-void merge_main(int *array, size_t size, int *temp)
+void topDownMerge_main(int *array, size_t size, int *temp)
 {
 	int mid;
 
@@ -64,9 +64,9 @@ void merge_main(int *array, size_t size, int *temp)
 		return;
 	}
 	mid = (size / 2);
-	merge_main(array, mid, temp);
-	merge_main(array + mid,  size - mid, temp);
-	merge(array, size, mid, temp);
+	topDownMerge_main(array, mid, temp);
+	topDownMerge_main(array + mid,  size - mid, temp);
+	topDownMerge(array, size, mid, temp);
 }
 
 /**
@@ -88,6 +88,6 @@ void merge_sort(int *array, size_t size)
 	{
 		return;
 	}
-	merge_main(array, size, temp);
+	topDownMerge_main(array, size, temp);
 	free(temp);
 }
