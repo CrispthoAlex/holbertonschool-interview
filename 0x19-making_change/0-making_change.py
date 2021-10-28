@@ -14,7 +14,7 @@ def makeChange(coins, total):
     """
     if (total < 0):
         return 0
-    
+
     qtyCoins = len(coins)  # Lenght or Quantity of Coins
 
     # table[i] will be storing the minimum number of coins required
