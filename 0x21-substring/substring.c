@@ -58,7 +58,7 @@ int matchCheck(char const *s, char const **wordsarr, int numwords, int wordlen)
 
 	done = malloc(sizeof(int) * numwords);
 
-	for (l = 0; numwords > 1; l++)
+	for (l = 0; numwords > l; l++)
 		done[l] = -1;
 
 	for (j = 0; j < numwords; j++)
