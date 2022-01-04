@@ -27,13 +27,13 @@ def calculateNumPrimes(n, primes):
         Get all prime numbers to 'n'
     """
     upPrime = primes[-1]
-    # print(f'Upper bound in primes array {upPrime}') # Print upper bound
     if n > upPrime:
         for i in range(upPrime + 1, n + 1):
             if isPrime(i):
                 primes.append(i)
             else:
                 primes.append(0)
+    # print(f'primes array {primes}') # Print primes array
 
 
 def isWinner(x, nums):
