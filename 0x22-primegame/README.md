@@ -3,7 +3,7 @@
 
 <h2>Requirements</h2>
 
-<h3>C</h3>
+<h3>General</h3>
 
 <ul>
     <li>Allowed editors: <code>vi</code>, <code>vim</code>, <code>emacs</code></li>
@@ -19,12 +19,8 @@
 
 | **Filename** | **Description** |
 |---|---|
-| [0. Prime Game](./0-prime_game.py) | Maria and Ben are playing a game. Given a set of consecutive integers starting from 1 up to and including n, they take turns choosing a prime number from the set and removing that number and its multiples from the set. The player that cannot make a move loses the game.
+| [0. Prime Game](./0-prime_game.py) | Maria and Ben are playing a game. Given a set of consecutive integers starting from 1 up to and including n, they take turns choosing a prime number from the set and removing that number and its multiples from the set. The player that cannot make a move loses the game. They play x rounds of the game, where n may be different for each round. Assuming Maria always goes first and both players play optimally, determine who the winner of each game is. |
 
-They play x rounds of the game, where n may be different for each round. Assuming Maria always goes first and both players play optimally, determine who the winner of each game is. |
-
-<ul>
-<li>Prototype: <code>int *find_substring(char const *s, char const **words, int nb_words, int *n);</code>, where
 
 <ul>
     <li>Prototype: <code>def isWinner(x, nums)</code></li>
@@ -34,8 +30,10 @@ They play x rounds of the game, where n may be different for each round. Assumin
     <li>You can assume <code>n</code> and <code>x</code> will not be larger than 10000</li>
     <li>You cannot import any packages in this task</li>
 </ul>
+
 <br>
 <br>
+
 #### Follow me
 
 | Authors | GitHub | Twitter | Linkedin |
